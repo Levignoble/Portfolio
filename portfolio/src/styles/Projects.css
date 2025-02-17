@@ -1,0 +1,130 @@
+.projects {
+  width: 100%;
+  padding: 6rem 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.projects__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.projects__card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projects__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.projects__card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #2c3e50;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.projects__card p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #34495e;
+  letter-spacing: 0.2px;
+}
+
+.projects__card a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+}
+
+.projects__card a:hover {
+  color: #2ecc71;
+}
+
+.projects__tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.projects__tech-tag {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.projects__tech-tag:hover {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.projects__links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.projects__link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.projects__link:hover {
+  color: #2ecc71;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 0;
+  }
+
+  .projects__content {
+    padding: 0 1rem;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

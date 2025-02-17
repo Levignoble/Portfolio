@@ -1,0 +1,168 @@
+.tech-stack {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.tech-stack h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+}
+
+.tech-stack h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #3498db;
+  border-radius: 2px;
+}
+
+.tech-stack__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.tech-stack__item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-stack__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.tech-stack__icon {
+  font-size: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.tech-stack__item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover effects */
+.tech-stack__item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tech-stack__item:hover::before {
+  opacity: 0.1;
+}
+
+.tech-stack__item:hover .tech-stack__icon {
+  transform: scale(1.2) rotate(8deg);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.tech-stack__item:hover span {
+  transform: scale(1.1);
+  font-weight: 600;
+}
+
+/* Active state */
+.tech-stack__item:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Custom hover colors for specific icons */
+.tech-stack__item:nth-child(1):hover { border-color: #E34F26; } /* HTML5 */
+.tech-stack__item:nth-child(2):hover { border-color: #264DE4; } /* CSS */
+.tech-stack__item:nth-child(3):hover { border-color: #F7DF1E; } /* JavaScript */
+.tech-stack__item:nth-child(4):hover { border-color: #3776AB; } /* Python */
+.tech-stack__item:nth-child(5):hover { border-color: #00599C; } /* C++ */
+.tech-stack__item:nth-child(6):hover { border-color: #61DAFB; } /* React */
+.tech-stack__item:nth-child(7):hover { border-color: #7952B3; } /* Bootstrap */
+.tech-stack__item:nth-child(8):hover { border-color: #38B2AC; } /* Tailwind */
+.tech-stack__item:nth-child(9):hover { border-color: #339933; } /* Node */
+.tech-stack__item:nth-child(10):hover { border-color: #000000; } /* Express */
+.tech-stack__item:nth-child(11):hover { border-color: #3776AB; } /* Flask */
+.tech-stack__item:nth-child(12):hover { border-color: #336791; } /* PostgreSQL */
+.tech-stack__item:nth-child(13):hover { border-color: #47A248; } /* MongoDB */
+.tech-stack__item:nth-child(14):hover { border-color: #4479A1; } /* MySQL */
+.tech-stack__item:nth-child(15):hover { border-color: #FFCA28; } /* Firebase */
+
+/* Add subtle pulsing animation to icons */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.tech-stack__icon {
+  animation: pulse 2s infinite;
+  animation-play-state: paused;
+}
+
+.tech-stack__item:hover .tech-stack__icon {
+  animation-play-state: running;
+}
+
+/* Updated custom colors for specific icons */
+.tech-stack__item:nth-child(1) .tech-stack__icon { color: #E34F26; } /* HTML5 */
+.tech-stack__item:nth-child(2) .tech-stack__icon { color: #264DE4; } /* CSS */
+.tech-stack__item:nth-child(3) .tech-stack__icon { color: #F7DF1E; } /* JavaScript */
+.tech-stack__item:nth-child(4) .tech-stack__icon { color: #3776AB; } /* Python */
+.tech-stack__item:nth-child(5) .tech-stack__icon { color: #00599C; } /* C++ */
+.tech-stack__item:nth-child(6) .tech-stack__icon { color: #61DAFB; } /* React */
+.tech-stack__item:nth-child(7) .tech-stack__icon { color: #7952B3; } /* Bootstrap */
+.tech-stack__item:nth-child(8) .tech-stack__icon { color: #38B2AC; } /* Tailwind */
+.tech-stack__item:nth-child(9) .tech-stack__icon { color: #339933; } /* Node */
+.tech-stack__item:nth-child(10) .tech-stack__icon { color: #000000; } /* Express */
+.tech-stack__item:nth-child(11) .tech-stack__icon { color: #3776AB; } /* Flask */
+.tech-stack__item:nth-child(12) .tech-stack__icon { color: #336791; } /* PostgreSQL */
+.tech-stack__item:nth-child(13) .tech-stack__icon { color: #47A248; } /* MongoDB */
+.tech-stack__item:nth-child(14) .tech-stack__icon { color: #4479A1; } /* MySQL */
+.tech-stack__item:nth-child(15) .tech-stack__icon { color: #FFCA28; } /* Firebase */
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tech-stack__grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tech-stack__icon {
+    font-size: 2rem;
+  }
+
+  .tech-stack__item span {
+    font-size: 0.8rem;
+  }
+}
