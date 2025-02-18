@@ -16,21 +16,86 @@ import { SiCplusplus } from 'react-icons/si';
 import '../styles/TechStack.css';
 
 const technologies = [
-  { name: 'HTML5', icon: <FaHtml5 /> },
-  { name: 'CSS', icon: <FaCss3Alt /> },
-  { name: 'JavaScript', icon: <FaJs /> },
-  { name: 'Python', icon: <FaPython /> },
-  { name: 'C++', icon: <SiCplusplus /> },
-  { name: 'React', icon: <FaReact /> },
-  { name: 'Bootstrap', icon: <FaBootstrap /> },
-  { name: 'Tailwind', icon: <BiLogoTailwindCss /> },
-  { name: 'Node.js', icon: <FaNodeJs /> },
-  { name: 'Express', icon: <FaServer /> },
-  { name: 'Flask', icon: <FaPython /> },
-  { name: 'PostgreSQL', icon: <DiPostgresql /> },
-  { name: 'MongoDB', icon: <DiMongodb /> },
-  { name: 'MySQL', icon: <DiMysql /> },
-  { name: 'Firebase', icon: <FaDatabase /> }
+  { 
+    name: 'C++', 
+    icon: <SiCplusplus />,
+    color: '#00599C'  // C++ blue
+  },
+  { 
+    name: 'JavaScript', 
+    icon: <FaJs />,
+    color: '#F7DF1E'  // JavaScript yellow
+  },
+  { 
+    name: 'Python', 
+    icon: <FaPython />,
+    color: '#3776AB'  // Python blue
+  },
+  { 
+    name: 'React', 
+    icon: <FaReact />,
+    color: '#61DAFB'  // React light blue
+  },
+  { 
+    name: 'REST API', 
+    icon: <FaServer />,
+    color: '#FF6C37'  // Orange
+  },
+  { 
+    name: 'PostgreSQL', 
+    icon: <DiPostgresql />,
+    color: '#336791'  // PostgreSQL blue
+  },
+  { 
+    name: 'HTML5', 
+    icon: <FaHtml5 />,
+    color: '#E34F26'  // HTML orange
+  },
+  { 
+    name: 'CSS', 
+    icon: <FaCss3Alt />,
+    color: '#1572B6'  // CSS blue
+  },
+  { 
+    name: 'Node.js', 
+    icon: <FaNodeJs />,
+    color: '#339933'  // Node.js green
+  },
+  { 
+    name: 'Bootstrap', 
+    icon: <FaBootstrap />,
+    color: '#7952B3'  // Bootstrap purple
+  },
+  { 
+    name: 'Tailwind', 
+    icon: <BiLogoTailwindCss />,
+    color: '#06B6D4'  // Tailwind cyan
+  },
+  { 
+    name: 'Express', 
+    icon: <FaServer />,
+    color: '#000000'  // Express black
+  },
+  { 
+    name: 'Flask', 
+    icon: <FaPython />,
+    color: '#000000'  // Flask black
+  },
+  { 
+    name: 'MongoDB', 
+    icon: <DiMongodb />,
+    color: '#47A248'  // MongoDB green
+  },
+  { 
+    name: 'MySQL', 
+    icon: <DiMysql />,
+    color: '#4479A1'  // MySQL blue
+  },
+  { 
+    name: 'Firebase', 
+    icon: <FaDatabase />,
+    color: '#FFCA28'  // Firebase yellow
+  }
 ];
 
 const TechStack = () => {
@@ -50,7 +115,10 @@ const TechStack = () => {
               rotate: 5,
             }}
           >
-            <div className="tech-stack__icon">
+            <div 
+              className="tech-stack__icon"
+              style={{ color: tech.color }}  // Apply brand color to icon
+            >
               {tech.icon}
             </div>
             <span>{tech.name}</span>

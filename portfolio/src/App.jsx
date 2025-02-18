@@ -6,6 +6,8 @@ import TechStack from './components/TechStack';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import SectionSeparator from './components/SectionSeparator';
+import AboutMe from './components/AboutMe';
+import Footer from './components/Footer';
 import './styles/global.css';
 import './App.css';
 
@@ -30,10 +32,14 @@ function App() {
         <main>
           <Hero />
           <SectionSeparator />
-          <TechStack id="tech-stack" />
+          <AboutMe />
           <SectionSeparator />
           <Projects id="projects" />
+          <SectionSeparator />
+          <TechStack id="tech-stack" />
+          <SectionSeparator />
           <Contact id="contact" />
+          <Footer />
         </main>
       </div>
     </FormspreeProvider>

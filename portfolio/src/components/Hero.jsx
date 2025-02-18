@@ -146,6 +146,49 @@ const Hero = () => {
               ))}
             </div>
           </motion.div>
+
+
+          <motion.div 
+  className="hero__section herosectionextra"
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ delay: 0.4 }}
+>
+  <div className="achievements">
+    <h2 className="achievements__title">Achievements</h2>
+    <ul className="achievements__list">
+      <motion.li
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        Built a full-stack web application
+      </motion.li>
+      <motion.li
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        Solved 300+ Leetcode problems
+      </motion.li>
+      <motion.li
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.3 }}
+      >
+        Created a deep learning model for image classification
+      </motion.li>
+      <motion.li
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.4 }}
+      >
+        Open-source contributions on GitHub
+      </motion.li>
+    </ul>
+  </div>
+</motion.div>
+
         </div>
       </div>
     </section>

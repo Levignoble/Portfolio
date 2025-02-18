@@ -21,10 +21,10 @@
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(52, 152, 219, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -32,9 +32,11 @@
 }
 
 .projects__card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(52, 152, 219, 0.3);
 }
+
 
 .projects__card h3 {
   font-size: 1.8rem;

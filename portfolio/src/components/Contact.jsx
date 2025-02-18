@@ -1,112 +1,132 @@
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useForm } from '@formspree/react';
+import { SiBuymeacoffee } from 'react-icons/si';
+import { FiSend } from 'react-icons/fi';
 import { FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import '../styles/Contact.css';
-import SectionSeparator from './SectionSeparator';
 
 const Contact = () => {
+  const [state, handleSubmit] = useForm("mpwqorkp");
+  const [showToast, setShowToast] = useState(false);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await handleSubmit(e);
+    if (state.succeeded) {
+      setShowToast(true);
+      e.target.reset();
+      setTimeout(() => setShowToast(false), 2000);
+    }
+  };
+
   return (
-    <section className="contact" id="contact">
-      <SectionSeparator />
-      
-      <div className="contact__content">
-        <motion.div 
-          className="contact__header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="contact__title">Get In Touch</h2>
-          <p className="contact__description">
-            Have a project in mind? Let's work together to create something amazing.
-          </p>
-        </motion.div>
+    <>
+      <section id="contact" className="contact">
+        <div className="contact__header">
+          <h1>Get In Touch</h1>
+          <p>Have a project in mind? Let's work together to create something amazing.</p>
+        </div>
 
-        <div className="contact__container">
-          <motion.form 
-            className="contact__form"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="form__group">
-              <input 
-                type="text" 
-                className="form__input" 
-                id="name" 
-                placeholder=" "
-                required 
-              />
-              <label htmlFor="name" className="form__label">Your Name</label>
-            </div>
-
-            <div className="form__group">
-              <input 
-                type="email" 
-                className="form__input" 
-                id="email" 
-                placeholder=" "
-                required 
-              />
-              <label htmlFor="email" className="form__label">Email Address</label>
-            </div>
-
-            <div className="form__group">
-              <textarea 
-                className="form__textarea" 
-                id="message" 
-                placeholder=" "
-                required
-              ></textarea>
-              <label htmlFor="message" className="form__label">Your Message</label>
-            </div>
-
-            <motion.button 
-              className="form__button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Send Message
-            </motion.button>
-          </motion.form>
-
+        <div className="contact__wrapper">
+          {/* Contact Form Section */}
           <motion.div 
-            className="contact__info"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            className="contact__form-section"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="contact__info-item">
-              <FaPhone className="contact__info-icon" />
-              <div>
-                <h3>Phone</h3>
-                <a href="tel:+919548783353">+91 9548783353</a>
-              </div>
+            <div className="section__header">
+              <h2>Send Message</h2>
+              <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
             </div>
+            
+            <form onSubmit={onSubmit} className="contact__form">
+              <div className="form__group">
+                <input type="text" name="name" required placeholder="Your Name" />
+              </div>
+              <div className="form__group">
+                <input type="email" name="email" required placeholder="Your Email" />
+              </div>
+              <div className="form__group">
+                <textarea name="message" required placeholder="Your Message"></textarea>
+              </div>
+              <motion.button
+                type="submit"
+                disabled={state.submitting}
+                className="submit-btn"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>{state.submitting ? 'Sending...' : 'Send Message'}</span>
+                <FiSend />
+              </motion.button>
+            </form>
+          </motion.div>
 
-            <div className="contact__info-item">
-              <FaEnvelope className="contact__info-icon" />
-              <div>
-                <h3>Email</h3>
+          {/* Support Section with Contact Info */}
+          <div className="contact__right">
+            <motion.div 
+              className="contact__support"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="support__content">
+                <h2>Support My Work</h2>
+                <p>If you find my work helpful or want to support my journey, consider buying me a coffee!</p>
+                <motion.a
+                  href="https://buymeacoffee.com/sakshamlev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="coffee-btn"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <SiBuymeacoffee />
+                  <span>Buy me a coffee</span>
+                </motion.a>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="contact__info"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="info__item">
+                <FaEnvelope className="info__icon" />
                 <a href="mailto:sakshamsinghrawat6@gmail.com">sakshamsinghrawat6@gmail.com</a>
               </div>
-            </div>
-
-            <div className="contact__info-item">
-              <FaWhatsapp className="contact__info-icon" />
-              <div>
-                <h3>WhatsApp</h3>
+              <div className="info__item">
+                <FaWhatsapp className="info__icon" />
                 <a href="https://wa.me/919548783353" target="_blank" rel="noopener noreferrer">
-                  Ping me on WhatsApp
+                  Ping Me!!
                 </a>
               </div>
-            </div>
-          </motion.div>
+              <div className="info__item">
+                <FaPhone className="info__icon" />
+                <a href="tel:+919548783353">+91 9548783353</a>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+
+        <AnimatePresence>
+          {showToast && (
+            <motion.div 
+              className="toast"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+            >
+              Message sent successfully! ✨
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+    </>
   );
 };
 

@@ -17,15 +17,8 @@ const Navbar = () => {
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    const navbarHeight = 80;
     if (element) {
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -41,16 +34,23 @@ const Navbar = () => {
     >
       <div className="navbar__container">
         <div className="navbar__logo">
-          <span className="navbar__logo-text">Portfolio</span>
-        </div>
-        <div className="navbar__links">
           <motion.button 
-            onClick={() => scrollToSection('tech-stack')} 
+            onClick={() => scrollToSection('hero')} 
             className="navbar__link"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Tech Stack
+            Home
+          </motion.button>
+        </div>
+        <div className="navbar__links">
+          <motion.button 
+            onClick={() => scrollToSection('about')} 
+            className="navbar__link"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            About
           </motion.button>
           <motion.button 
             onClick={() => scrollToSection('projects')} 
@@ -59,6 +59,14 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             Projects
+          </motion.button>
+          <motion.button 
+            onClick={() => scrollToSection('tech-stack')} 
+            className="navbar__link"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Tech Stack
           </motion.button>
           <motion.button 
             onClick={() => scrollToSection('contact')} 
